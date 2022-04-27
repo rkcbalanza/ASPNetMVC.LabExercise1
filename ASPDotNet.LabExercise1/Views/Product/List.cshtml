@@ -1,0 +1,37 @@
+﻿
+@using System.Collections.Generic;
+@using ASPNetMVC.LabExercise1.Models;
+
+@{
+    var productList = ViewData["ProductList"] as List<Product>;
+    var grandTotal = ViewData["GrandTotal"] as decimal?;
+}
+<div>
+    <h2>Product List</h2>
+    <table cellpadding="10" cellspacing="10">
+        <tr style="background-color: #FFC0CB">
+            <td>Id</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>Total Price</td>
+        </tr>
+        @foreach (var product in productList)
+        {
+            <tr style="background-color: #D3D3D3">
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Quantity</td>
+                <td>@product.Price</td>
+                <td>@product.TotalAmount</td>
+            </tr>
+        }
+        <tr style="background-color: #FFC0CB">
+            <td colspan=5 align=right>Grand Total</td>
+            <td>@grandTotal</td>
+        </tr>
+    </table>
+
+</div>
